@@ -85,11 +85,48 @@
 
 
 
-let deleteBtn = document.querySelector("[data-delete-btn]");
-deleteBtn.addEventListener("click", () => {
-    
-})
+// let deleteBtns = document.querySelectorAll("[data-delete-btn]");
+// console.log(deleteBtns)
 
+// deleteBtns.forEach(button => {
+//     button.addEventListener("click", () => {
+//         $.ajax({
+//             url: '/todo',
+//             type: 'DELETE',
+//             success: function(result) {
+//                 console.log(result)
+//             }
+//         });
+//     })
+// })
+
+
+
+let deleteBtns = $("[data-delete-btn]");
+// let items = [];
+// console.log(deleteBtns)
+
+
+// for (let i = 0; i < deleteBtns.length; i++) {
+//     items.push(deleteBtns[i].parentNode.childNodes[0].nodeValue.replace(/ /g, "-"));
+//     deleteBtns[i].click(() => {
+//         console.log(items[i])
+//     })
+// }
+
+// deleteBtns.forEach(btn => {
+//     items.push(deleteBtns[i].parentNode.childNodes[0].nodeValue.replace(/ /g, "-"));
+// });
+
+// console.log(items)
+
+deleteBtns.click(event => {
+    const item = event.currentTarget.parentNode.childNodes[0].nodeValue.replaceAll(/ /g, "-").toString()
+    $.ajax({
+        url: `/todo?item=${item}`,
+        type: 'DELETE',
+    });
+})
 
 
 

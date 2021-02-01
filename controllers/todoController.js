@@ -1,17 +1,3 @@
-// const data = [
-//     {
-//         todo: "Upgrade JS"
-//     },
-//     {
-//         todo: "Learn node"
-//     },
-//     {
-//         todo: "Eat dinner"
-//     }
-// ]
-
-
-
 const bodyParser = require("body-parser")
 const encodedUrl = bodyParser.urlencoded({ extended: false })
 
@@ -30,14 +16,10 @@ const todoRef = db.ref(`todos`);
 todoRef.on("value", snapShot => {
     data = snapShot.val();
     console.log(data)
-    // todoRef.child("asdasdsad").remove();
 }, err => {
     console.log(err.message)
 })
 
-// ref.on("value", snapshot => {
-//   console.log(snapshot.val());
-// });
 
 
 
@@ -50,28 +32,26 @@ module.exports = (app) => {
     })
 
     app.post("/todo", encodedUrl, (req, res) => {
-        // data.push(req.body)
-        // console.log(data)
-
-        // console.log(req.body.todo)
-        // ref.push({
-        //     item: req.body.todo
-        // })
-        // ref.child(`todo_${uid++}`).setValue({
-        //     item: req.body.todo
-        // })
-        // ref.on("child_added", snapshot => {
-        //     console.log(snapshot.val())
-        // })
-        // todoRef.push({
-        //     item: req.body.todo
-        // })
         todoRef.push({
             item: req.body.todo
         })
-
         res.render("index", { todo: data })
     })
+
+    app.delete("/todo", (req, res) => {
+        let val1, val2;
+        for(let key in data) {
+            if(data.hasOwnProperty(key)) {
+                val1 = data[key].item.toString().replace(/ /g,"-");
+                val2 = req.query.item
+                if(val1 === val2) {
+                    delete data[key];
+                    todoRef.child(key).remove();
+                    res.render("index", { todo: data });
+                }
+            }
+        }
+    });
 
 }
 

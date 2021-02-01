@@ -36,25 +36,11 @@
             <div class="row justify-content-center">
                 <div class="col-6">
                     <ul class="list-group">
-
-
                         <% for (let key in todo) { %>
-                            
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <%= todo[key].item %>
-                                <button data-delete-btn class="btn btn-md btn-outline-primary">Delete</button>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"><%= todo[key].item %><button data-delete-btn class="btn btn-md btn-outline-primary delete-btn">Delete</button>
                             </li>
-                                    
                         <% } %>
-                            
-
-          
-
-
-
-
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -62,19 +48,22 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="../assets/app.js"></script>
 
-        
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-database.js"></script>
     <script>
         // Your web app's Firebase configuration
@@ -92,8 +81,8 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-    </script>
-    <script src="../assets/app.js"></script>
+    </script> -->
+
 </body>
 
 </html>
