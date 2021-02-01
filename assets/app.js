@@ -125,6 +125,9 @@ deleteBtns.click(event => {
     $.ajax({
         url: `/todo?item=${item}`,
         type: 'DELETE',
+        success: () => {
+            window.location = "/todo"
+        }
     });
 })
 
